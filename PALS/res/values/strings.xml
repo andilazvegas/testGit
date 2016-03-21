@@ -3,6 +3,7 @@
 
     <string name="app_name">PALS</string>
     <string name="hello_world">Hello world!</string>
+    <string name="locationTxt">Continuous Location Update</string>
     <string name="action_settings">Settings</string>
 
 </resources>
