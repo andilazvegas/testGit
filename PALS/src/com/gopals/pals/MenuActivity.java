@@ -10,8 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -48,11 +47,11 @@ public class MenuActivity extends Activity implements
 	        .addOnConnectionFailedListener(this)
 	        .build();
         
-        Button btnShowMaps = (Button)findViewById(R.id.btnShowMaps);
+        LinearLayout btnShowMaps = (LinearLayout)findViewById(R.id.btnShowMaps);
         btnShowMaps.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent mapsActivity = new Intent(MenuActivity.this, MapsActivity.class);
+				Intent mapsActivity = new Intent(MenuActivity.this, FindATM.class);
 				startActivity(mapsActivity);
 			}
 		});
@@ -124,14 +123,17 @@ public class MenuActivity extends Activity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.action_help:
-        	Toast.makeText(MenuActivity.this, "Help", Toast.LENGTH_SHORT).show();
-            return true;
+        	Intent help = new Intent(MenuActivity.this, Help.class);
+        	startActivity(help);
+        	break;
         case R.id.action_about:
-            Toast.makeText(MenuActivity.this, "About", Toast.LENGTH_SHORT).show();
-            return true;
+        	Intent about = new Intent(MenuActivity.this, About.class);
+        	startActivity(about);
+        	break;
         default:
             return super.onOptionsItemSelected(item);
         }
+        return true;
     }
 	
 	protected void createLocationRequest() {
